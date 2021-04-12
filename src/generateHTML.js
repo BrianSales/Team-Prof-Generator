@@ -7,11 +7,11 @@ function renderEmployeestatus(employee){
 
         
             html = html + `<div class="employeeContainer">
-            <p>${employee[i].type}</p>
-            <p>${employee[i].id}</p>
-            <p>${employee[i].name}</p>
-            <p>${employee[i].email}</p>
-            <p>${employee[i].officeNumber}</p>
+            <h2>${employee[i].type}</h2>
+            <h3>${employee[i].name}</h3>
+            <p>ID: ${employee[i].id}</p>
+            <a href="mailto: ${employee[i].email}">${employee[i].email}</a>
+            <p>Office Number: ${employee[i].officeNumber}</p>
             
             </div>`
     
@@ -20,11 +20,11 @@ function renderEmployeestatus(employee){
 
         
             html = html + `<div class="employeeContainer">
-            <p>${employee[i].type}</p>
-            <p>${employee[i].id}</p>
-            <p>${employee[i].name}</p>
-            <p>${employee[i].email}</p>
-            <p>${employee[i].github}</p>
+            <h2>${employee[i].type}</h2>
+            <h3>${employee[i].name}</h3>
+            <p>ID: ${employee[i].id}</p>
+            <a href="mailto: ${employee[i].email}">${employee[i].email}</a>
+            <a href="${employee[i].github}">${employee[i].github}</a>
             
             </div>`
     
@@ -33,10 +33,10 @@ function renderEmployeestatus(employee){
 
         
             html = html + `<div class="employeeContainer">
-            <p>${employee[i].type}</p>
-            <p>${employee[i].id}</p>
-            <p>${employee[i].name}</p>
-            <p>${employee[i].email}</p>
+            <h2>${employee[i].type}</h2>
+            <h3>${employee[i].name}</h3>
+            <p>ID: ${employee[i].id}</p>
+            <a href="mailto: ${employee[i].email}">${employee[i].email}</a>
             <p>${employee[i].school}</p>
             
             </div>`
@@ -62,10 +62,66 @@ function generateHTML(data){
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Team Profile</title>
+        <style>
+            .header {
+            background: red;
+            height: 150px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            }
+
+            .header h1  {
+                font-size: 32px;
+            }
+
+            .employeeContainer {
+                border: 1px solid gray;
+                min-width: 200px;
+                min-height: 100px;
+            }
+
+            .employeeContainer h2 {
+                text-align: center;
+                padding-bottom: 10px;
+                background: blue;
+                color: white;
+                margin: 0;
+            }
+            .employeeContainer h3 {
+                text-align: center;
+                padding-bottom: 10px;
+                background: blue;
+                color: white;
+                margin: 0;
+            }
+            .employeeContainer p {
+                margin: 0;
+                border: 1px solid gray;
+                padding: 10px;
+            }
+            .employeeContainer a {
+                display: block;
+                margin: 0;
+                border: 1px solid gray;
+                padding: 10px;
+            }
+
+            .employees {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            
+        </style>
     </head>
+
     <body>
-        <div class="header">
-        ${renderEmployeestatus(data)}
+        <div class="header"><h1>My Team</h1></div>
+        <div class="employees">${renderEmployeestatus(data)}</div>
+        
         
     </body>
     </html>`
