@@ -103,7 +103,7 @@ function writeToFile(fileName, data) {
     if (err) {
       console.log(err)
     }
-    console.log("Readme Generated Succesfully")
+    console.log("Profile Generated Succesfully")
   })
 }
 
@@ -117,6 +117,7 @@ async function init() {
   while (done == false) {
     const answer = await inquirer.prompt(question)
     if (answer.type == 'Exit') {
+      console.log(employeeInformation)
       const html = generateHTML(employeeInformation)
       writeToFile("index.html", html)
       return;
